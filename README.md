@@ -1,16 +1,14 @@
 # Predicting-cool-load-using-Energy-Efficency-dataset-with-Lasso-Ridge-ElasticNet
 
 
-In this project, we loaded a housing dataset using Pandas, containing information about various housing attributes like price, area, bedrooms, bathrooms, stories, and categorical features. We conducted data exploration, finding no missing values, and retained all 545 rows.
+In this analysis, we worked with a dataset containing information related to building energy efficiency. We started by loading the dataset and selected relevant columns for analysis. The dataset included features like relative compactness, surface area, wall area, roof area, overall height, orientation, glazing area, glazing area distribution, and cooling load.
 
-Next, we explored correlations between numerical features and "price." Notably, "area" and "bathrooms" had strong positive correlations. We preprocessed the data, applied one-hot encoding to categorical features, and standardized numerical features.
+We checked for missing values, and fortunately, there were none. To ensure consistency, we filled any potential missing values in specific columns with zeros. Then, we prepared the data for modeling, splitting it into features (X) and the target variable (y). We further divided the data into training and testing sets.
 
-Data was split into training and testing sets (70:30 ratio) and scaled. A Logistic Regression classifier was used for predictions, though it's primarily for classification, which may not be ideal for regression.
+We performed K-fold cross-validation with K=5 for three different regression models: Lasso Regression, Ridge Regression, and Elastic Net Regression. Each model was trained and evaluated using cross-validation to assess its performance.
 
-Principal Component Analysis (PCA) was applied for dimensionality reduction to two components, capturing a significant portion of variance.
+The results of cross-validation showed promising results for all three models, with varying R-squared values. Ridge Regression consistently performed the best among the models, followed by Lasso Regression and Elastic Net Regression.
 
-Model evaluation metrics include Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and R-squared (R2). MAPE and RMSE were relatively high, indicating significant prediction errors. A negative R2 score is unexpected, suggesting potential issues with model performance or evaluation.
+Finally, we calculated the Mean Squared Error (MSE) for each model using the test data to measure prediction accuracy. Ridge Regression achieved the lowest MSE, indicating its superior predictive performance on the test set.
 
-A scatter plot visualized predicted vs. actual median house values.
-
-In summary, our initial model using Logistic Regression yielded suboptimal results. Further exploration, feature engineering, or different regression algorithms may improve predictive accuracy for house prices.
+In summary, we conducted a comprehensive analysis of building energy efficiency using different regression models and found that Ridge Regression provided the most accurate predictions for cooling load based on the given features.
